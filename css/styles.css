@@ -1,0 +1,273 @@
+/* Base CSS for portfolio */
+body, 
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font: 16px/1.2 "Lato", Arial, sans-serif;
+    color: #2d3c49;
+}
+
+header,
+main,
+footer {
+    width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0;
+}
+
+.fill {
+    width: 100%;
+}
+
+header,
+nav,
+footer,
+section, 
+article,
+div {
+    box-sizing: border-box;
+}
+
+a:link {
+    text-decoration: none;
+    color: #2d3c49;
+    line-height: 1.8;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #2d3c49;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #02b3e4;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* header */
+.header {
+    padding: 0.5rem;
+}
+
+.logo {
+    text-align: center;
+}
+
+.nav-container {
+    margin: 5px 0;
+}
+
+.nav {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.nav-points {
+    display: inline-block;
+    margin: 0 10px;
+    text-transform: uppercase;
+}
+
+.content {
+    width: 100%;
+}
+
+/* splash */
+.splash {
+    width: 100%;
+    min-height: 265px;
+    position: relative;
+    background: url("../img/desk-(360)400x267.jpg") no-repeat;
+    background-size: cover;
+}
+
+.splash-content {
+    box-sizing: border-box;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.349);
+    top: 20%;
+    width: 100%;
+    padding: 1.5em;
+    color: #fff;
+}
+
+.intro-title {
+    font-size: 2em;
+}
+
+.intro-text {
+    font-size: 1.2em;
+}
+
+
+/* portfolio */
+.portfolio-heading {
+    margin-top: 2em;
+    text-align: center;
+}
+.portfolio-items {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pen-item-img {
+    max-height: 300px;
+}
+
+.pen-item {
+    flex: 1 0 100%;
+    padding: 1.5em;
+}
+
+.proj-item-img {
+    max-height: 300px;
+}
+
+.proj-item {
+    flex: 1 0 100%;
+    padding: 1.5em;
+}
+
+.card {
+    border: 1px solid #ddd;
+    height: 100%;
+}
+
+.description { 
+    padding: 1em;
+    text-align: center;
+}
+
+
+/* footer */
+footer {
+    margin-top: 2em;
+    width: 100%;
+    text-align: end;
+    padding: 1rem 1rem;
+    background: #e6e6e6;
+    text-align: center;
+}
+
+.social-media {
+    display: inline-block;
+    min-width: 45px;
+    min-height: 45px;
+    margin: 0 5px;
+}
+
+
+/* breakpoints */
+@media screen and (min-width: 577px) {
+    .intro-title {
+    font-size: 2.5em;
+    }
+
+    .intro-text {
+    font-size: 1.6em;
+    }
+
+    .splash {
+        width: 100%;
+        min-height: 380px;
+        position: relative;
+        background: url("../img/desk-(576)600x400.jpg") no-repeat;
+        background-size: cover;
+    }
+
+    .pen-item {
+        flex: 1 0 50%;
+        padding: 1em;
+    }
+
+    .pen-item-img {
+        max-height: 300px;
+    }
+    
+    .proj-item-img {
+        max-height: 350px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .intro-title {
+        font-size: 3em;
+        }
+    
+        .intro-text {
+        font-size: 2em;
+        }
+
+    .splash {
+        width: 100%;
+        min-height: 450px;
+        position: relative;
+        background: url("../img/desk-(768)800x534.jpg") no-repeat;
+        background-size: cover;
+    }
+
+    .pen-item {
+        flex: 1 0 33.33%;
+    }
+
+    .proj-item {
+        flex: 1 0 50%;
+    }
+
+    .splash-content {
+        text-align: center;
+    }
+
+    .pen-item-img {
+        max-height: 325px;
+    }
+    .proj-item-img {
+        max-height: 370px;
+    }
+    
+}
+@media screen and (min-width: 992px) {
+    .splash {
+        width: 100%;
+        min-height: 500px;
+        position: relative;
+        background: url("../img/desk-(1200)1500x1001.jpg") no-repeat;
+        background-size: cover;
+    }
+
+    .proj-item-img {
+        max-height: 450px;
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    header,
+    main,
+    footer {
+        width: 1100px;
+        margin: 0 auto;
+    }
+}
