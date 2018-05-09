@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Robert Leu</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,900">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+</head>
+<body>
+    <!-- header -->
+    <header class="header">
+        <div class="logo">
+            <img src="img/rdev-70px.svg" alt="logo">
+        </div>
+        <div class="nav-container">
+            <!--nav might not be needed now but as I add work, it would be easier to navigate.-->
+            <nav class="nav">
+                <ul>
+                    <li class="nav-points"><a href="#pens">Pens</a></li> 
+                    <li class="nav-points"><a href="#projects">Projects</a></li>
+                    <li class="nav-points"><a href="#footer">Connect</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!--main content-->
+    <main>
+        <section class="content">
+            <section class="splash"> <!-- changes pictures with each break point to higher resolution -->
+                <div class="splash-content">
+                    <h1 class="intro-title">My name is Robert.</h1>
+                    <p class="intro-text">I am a developer. I love to create.</p>
+                </div>
+            </section>
+            <!-- Separate flex sections for codepen and projects. Pens quick cards, portfolio descriptive cards -->
+            <!-- code pen -->
+            <div class="portfolio-heading"><h2>Pens</h2></div>
+            <section id="pens" class="portfolio-items">
+                <div class="pen-item"> <!-- each new codepen item will follow same structure as contained in this div -->
+                    <div class="card"> <!-- wrapper for each item. Card border -->
+                        <img class="fill pen-item-img" src="img/animalcard.png" alt="Animal Card">
+                        <article class="description">
+                            <h3>Animal Trading Card</h3>
+                            <p>Created a trading card using Ice Bear from We Bare Bears. Used: HTML/CSS</p>
+                            <span>View Pen : </span><a href="https://codepen.io/Rleu/pen/GQjEVV">Codepen</a>
+                        </article>
+                    </div>
+                </div>
+                <div class="pen-item">
+                    <div class="card">
+                        <img class="fill pen-item-img" src="img/pixelart.png" alt="Pixel Art">
+                        <article class="description">
+                            <h3>Pixel Art Maker</h3>
+                            <p>Use BootStrap to create a simple Pixel Art Maker. HTML/CSS/JavaScript</p>
+                            <span>View Pen : </span><a href="https://codepen.io/Rleu/pen/XEQmYz">Codepen</a>
+                        </article>
+                    </div>
+                </div>
+                <!-- third work is present as placeholder to show how the page will feel at full width -->
+                <!-- TODO: Replace with real project. This was to show structure of the responsive portion dealing with codepen work.-->
+                <div class="pen-item">
+                        <img class="fill pen-item-img" src="img/placeholder.png" alt="Place Holder">
+                        <article class="description">
+                            <h3>Place Holder</h3>
+                            <p>Did not have enough pens yet to add. Place holder to add more as I develop.</p>
+                            <span>View Pen : </span><a href="https://codepen.io/">Codepen</a>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <!-- projects -->
+            <div class="portfolio-heading"><h2>Projects</h2></div>
+            <section id="projects" class="portfolio-items">
+                <!-- this div starts and end the structure for Project items. breakpoints are 1 above code pens. breaks to 50% width only -->
+                <div class="proj-item"> 
+                    <div class="card">
+                        <img class="fill proj-item-img" src="img/gd.jpg" alt="Golden Dragon">
+                        <article class="description">
+                            <h3>Golden Dragon Restaurant</h3>
+                            <p>Tasked to redo restaurant website. Currently in development. Two page layout is required, a home and menu page.</p>
+                            <span>View: </span><a href="http://www.goldendragonglendora.com/">Golden Dragon</a>
+                        </article>
+                    </div>
+                </div>
+                <!-- place holder for project to show breakpoint if I have more work to display. -->
+                <!-- TODO: Temporary only before going live. This was used to display look of breakpoints.-->
+                <div class="proj-item"> 
+                    <div class="card">
+                        <img class="fill proj-item-img" src="img/placeholder.png" alt="Place holder">
+                        <article class="description">
+                            <h3>For New Portfolio Items</h3>
+                            <p>New items I add to portfolio will look similiar to this. I did not have enough to populate.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <!-- Footer - Links to connect with me. -->
+    <footer id="footer">
+        <ul>
+            <li class="social-media">
+                <a href="https://www.linkedin.com/in/robert-leu-dev">
+                     <i class="fab fa-linkedin fa-2x"></i>
+                </a>
+            </li>
+            <li class="social-media">
+                <a href="https://github.com/rleu82">
+                    <i class="fab fa-git-square fa-2x"></i>
+                </a>
+            </li>
+            <li class="social-media">
+                <a href="https://www.facebook.com/robert.leu.3">
+                    <i class="fab fa-facebook fa-2x"></i>
+                </a>
+            </li>
+        </ul>
+    </footer>
+</body>
+</html>
