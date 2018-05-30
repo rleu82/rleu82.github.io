@@ -14,5 +14,5 @@
 3. Animate creation of game board.
 
 ---
-### Comments
+[Play the Game Here](https://rleu82.github.io/fend-project-memory-game/index.html)
 
