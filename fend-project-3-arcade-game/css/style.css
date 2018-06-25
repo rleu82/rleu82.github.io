@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+body {
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+}
+body {
+    background: url(../images/03-Late-Morning-tall.png); /* source http://www.bitday.me/download/ */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+canvas { position: absolute; 
+    z-index: 0; 
+    height: 772px;
+    width: 707px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 0; 
+}
+
+/*
+/   Grid for gem collect animation
+/   Possible use for future version for added features
+/   Possible features: collecting hammer or stars animate collection before
+/   canvas rendering a large hammer going across the screen.
+*/
+#animated {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 50px 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 60px;
+    position: absolute;
+    z-index: 1; 
+    height: 772px;
+    width: 707px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 0; 
+}
+
+/*
+/ Second overlay to manage game announcements
+/ Display score, lives, and highscore on first row
+*/
+
+/* Container for different in announcement banners */
+#announcements {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 1fr 1fr 1fr 2fr 1fr 60px;
+    position: absolute;
+    z-index: 1; 
+    height: 772px;
+    width: 707px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 0; 
+}
+
+#first-banner span {
+    font: bold 36px "Press Start 2P";
+    color: black;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -moz-animation-duration: 3s;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+#second-banner span {
+    font: bold 25px "Press Start 2P";
+    color: black;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -moz-animation-duration: 3s;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+#third-banner span {
+    font: bold 20px "Press Start 2P";
+    color: black;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -moz-animation-duration: 3s;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+/* Scores, lives, highscore container*/
+#box1 {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    align-items: center;
+    text-align: left;
+}
+
+/* Display score, lives, highscore */
+#box1-info1 span,
+#box1-info2 span,
+#box1-info3 span {
+    margin-left: 5px;
+    font-size: 12px;
+}
