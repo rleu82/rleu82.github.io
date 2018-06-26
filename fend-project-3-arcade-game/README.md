@@ -31,6 +31,8 @@ A classic arcade Frogger clone.
 ## Resources and Attributions
 [Collision Detection](https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection): Based off Axis-Aligned Bounding Box on Mozilla.
 
+[Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P) Font Used for Game.
+
 [BitDay](http://www.bitday.me/download/): 8Bit style background
 
 [Mario's Way](https://freesound.org/people/xsgianni/sounds/388079/): Created by [Gianni Caratelli](gianni73@hotmail.com) is the awesome game music used on this project.
