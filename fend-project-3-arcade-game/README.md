@@ -50,4 +50,10 @@ or download it by clicking the green button above. Once cloned or downloaded (an
 
 [Alarm Beep Sound](https://freesound.org/people/Kodack/sounds/258020/): CC0 licensed sound that is played when player collects a gem.
 
+<<<<<<< HEAD
 [Jingle Win Synth 6](https://freesound.org/people/LittleRobotSoundFactory/sounds/274181/): Created  by [LittleRobotSoundFactory](https://freesound.org/people/LittleRobotSoundFactory/) and is used when player clears a level.
+||||||| merged common ancestors
+[Jingle Win Synth 6](https://freesound.org/people/LittleRobotSoundFactory/sounds/274181/): is created  by [LittleRobotSoundFactory](https://freesound.org/people/LittleRobotSoundFactory/) and is used when player clears a level.
+=======
+[Jingle Win Synth 6](https://freesound.org/people/LittleRobotSoundFactory/sounds/274181/): is created  by [LittleRobotSoundFactory](https://freesound.org/people/LittleRobotSoundFactory/) and is used when player clears a level.
+>>>>>>> 9ee6fd74470469a275391073d87513ea33ec89b9
