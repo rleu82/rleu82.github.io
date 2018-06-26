@@ -2,7 +2,7 @@
 /*
 /
 / Game sounds
-/
+/ Howler.JS dependency
 */
 
 // Mario's Way by
@@ -53,7 +53,7 @@ var bgCleared = new Howl({
 */
 
 // Create Parent Class
-class gameEntity {
+class GameEntity {
     constructor(x, y, speed) {
         this.x = x;
         this.y = y;
@@ -67,7 +67,7 @@ class gameEntity {
 }
 
 // Enemy (bug) class
-class Enemy extends gameEntity {
+class Enemy extends GameEntity {
     constructor(x, y, speed) {
         super(x, y, speed);
         this.sprite = 'images/enemy-bug.png';
@@ -103,7 +103,7 @@ class Enemy extends gameEntity {
             player.x = 303;
             player.y = 664;
             player.speed = 0;
-            playerSpeedY = 0;
+            player.speedY = 0;
             player.x = 303;
             player.y = 664;
             buggedOut();
@@ -112,10 +112,10 @@ class Enemy extends gameEntity {
 }
 
 // Player character class
-let playerSpeedY = 83;
-class myChar extends gameEntity {
-    constructor(x, y, speed) {
+class MyChar extends GameEntity {
+    constructor(x, y, speed, speedY) {
         super(x, y, speed);
+        this.speedY = speedY;
         this.sprite = 'images/char-boy.png';
     }
 
@@ -123,16 +123,17 @@ class myChar extends gameEntity {
         // Update player position
         // Keep the player sprite within the game area
         // Restricted moving off screen by finding edge coordinates and subtracting row or column to find opposite point
-        if (player.y > 570) {
-            player.y = 570;
-        } else if (player.y < 0) {
+        if (this.y > 570) {
+            this.y = 570;
+        } else if (this.y < 0) {
             // Player reaches the water
-            player.y = -11;
-            player.speed = 0;
-            playerSpeedY = 0;
+            this.y = -11;
+            this.speed = 0;
+            // Set to 0 to stop Y axis movement when up down arrow press (eventlistener)
+            this.speedY = 0;
             // Player sent back to starting position
-            player.x = 303;
-            player.y = 664;
+            this.x = 303;
+            this.y = 664;
             // Score is updated, announcement displayed, sound played
             reachedWater();
             bgCleared.play();
@@ -143,12 +144,12 @@ class myChar extends gameEntity {
         }
         // Keep player from going too far right
         // 202 is starting location, plus (2 x 101 column width) = 404, so 202+404=606
-        if (player.x > 606) {
-            player.x = 606;
-        } else if (player.x < 0) {
+        if (this.x > 606) {
+            this.x = 606;
+        } else if (this.x < 0) {
             // Keep player from going too far left
             // 202 starting location minus (2 x 101 column width) = 0
-            player.x = 0;
+            this.x = 0;
         }
         if (curLives == 0) {
             gameOver();
@@ -157,27 +158,27 @@ class myChar extends gameEntity {
 
     // Required handleInput() method to manage keypress
     // player.speed is the same as the column width (101) to create uniform movement to each tile
-    // playerSpeedY is same as row height (83). used player.speed as base minus 18 to get 83
+    // player.speedY is same as row height (83). used player.speed as base minus 18 to get 83
     handleInput(keyDirection) {
         switch (keyDirection) {
             case 'up':
                 bgMove.play();
-                player.y -= playerSpeedY;
+                this.y -= this.speedY;
                 updateScore();
                 break;
             case 'down':
                 bgMove.play();
-                player.y += playerSpeedY;
+                this.y += this.speedY;
                 updateScore();
                 break;
             case 'left':
                 bgMove.play();
-                player.x -= player.speed;
+                this.x -= this.speed;
                 updateScore();
                 break;
             case 'right':
                 bgMove.play();
-                player.x += player.speed;
+                this.x += this.speed;
                 updateScore();
         }
     }
@@ -185,7 +186,7 @@ class myChar extends gameEntity {
 
 // Gem class:
 // boxNum corresponds to the grid number from the grid overlay placed above canvas
-class itemGem extends gameEntity {
+class ItemGem extends GameEntity {
     constructor(x, y, boxNum) {
         super(x, y);
         this.boxNum = boxNum;
@@ -335,7 +336,7 @@ let allEnemies = [
 
 // Place the player object in a variable called player
 // 101 is the speed of player obectp
-let player = new myChar(303, 664, 101);
+let player = new MyChar(303, 664, 101, 83);
 
 // Generate 3 Gems and place them in array(allGems) to render
 // let gem equal to the gem position object then
@@ -344,9 +345,9 @@ let player = new myChar(303, 664, 101);
 let gemOne = gridGemsPos();
 let gemTwo = gridGemsPos();
 let gemThree = gridGemsPos();
-let firstGem = new itemGem(gemOne.x, gemOne.y, gemOne.boxNum);
-let secondGem = new itemGem(gemTwo.x, gemTwo.y, gemTwo.boxNum);
-let thirdGem = new itemGem(gemThree.x, gemThree.y, gemThree.boxNum);
+let firstGem = new ItemGem(gemOne.x, gemOne.y, gemOne.boxNum);
+let secondGem = new ItemGem(gemTwo.x, gemTwo.y, gemTwo.boxNum);
+let thirdGem = new ItemGem(gemThree.x, gemThree.y, gemThree.boxNum);
 let allGems = [firstGem, secondGem, thirdGem];
 
 /*
@@ -425,7 +426,7 @@ function clearAnnounce() {
 // Place gems in random location
 function nextRound() {
     player.speed = 101;
-    playerSpeedY = 83;
+    player.speedY = 83;
     clearAnnounce();
     // instantiate gems for next round
     reInstantiateGems();
@@ -434,7 +435,7 @@ function nextRound() {
 // Reset players speed after death
 function nextLife() {
     player.speed = 101;
-    playerSpeedY = 83;
+    player.speedY = 83;
 }
 
 // Game over banner
@@ -451,7 +452,7 @@ function gameEndBanner() {
 // Display game over
 function gameOver() {
     player.speed = 0;
-    playerSpeedY = 0;
+    player.speedY = 0;
     gameEndBanner();
     allEnemies.forEach(function(enemy) {
         enemy.speed = 0;
@@ -461,7 +462,7 @@ function gameOver() {
 // Reset player speed, replace gems in random locations, reset random enemy speed
 function restartEntities() {
     player.speed = 101;
-    playerSpeedY = 83;
+    player.speedY = 83;
     reInstantiateGems();
     allEnemies.forEach(function(enemy) {
         enemy.speed = randomSpeed();

@@ -186,7 +186,7 @@ var Engine = (function(global) {
     function reset() {
         isPaused = true;
         player.speed = 0;
-        playerSpeedY = 0;
+        player.speedY = 0;
         curLevel = 1;
         curScore = 0;
         curLives = 5;
@@ -222,7 +222,7 @@ var Engine = (function(global) {
         } else if (keyPressed == 13 && disableEnter == true) {
             e.preventDefault();
             player.speed = 0;
-            playerSpeedY = 0;
+            player.speedY = 0;
         }
     });
 
@@ -240,7 +240,7 @@ var Engine = (function(global) {
             2;
             e.preventDefault();
             player.speed = 0;
-            playerSpeedY = 0;
+            player.speedY = 0;
         }
     });
 
