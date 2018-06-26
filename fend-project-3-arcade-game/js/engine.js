@@ -25,10 +25,11 @@ var Engine = (function(global) {
         canvas = document.createElement('canvas'),
         ctx = canvas.getContext('2d', { alpha: false }),
         lastTime;
-    /* default canvas size
-    canvas.width = 505;
-    canvas.height = 606;
-*/
+    /* 
+    /  Original canvas size
+    /  canvas.width = 505;
+    /  canvas.height = 606;
+    */
     canvas.width = 707;
     canvas.height = 772;
     doc.appendChild(canvas);
@@ -59,6 +60,8 @@ var Engine = (function(global) {
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
          */
+
+        // Pause animation - used when game start and reset
         if (isPaused == true) {
             return;
         } else {
@@ -164,28 +167,22 @@ var Engine = (function(global) {
         renderEntities();
     }
 
-    /* This function is called by the render function and is called on each game
-     * tick. Its purpose is to then call the render functions you have defined
-     * on your enemy and player entities within app.js
-     */
+    /* 
+    /   Render Player, Enemy, and Gems
+    */
     function renderEntities() {
-        /* Loop through all of the objects within the allEnemies array and call
-         * the render function you have defined.
-         */
         allGems.forEach(function(gem) {
             gem.render();
         });
-
         allEnemies.forEach(function(enemy) {
             enemy.render();
         });
         player.render();
     }
 
-    /* This function does nothing but it could have been a good place to
-     * handle game reset states - maybe a new game menu or a game over screen
-     * those sorts of things. It's only called once by the init() method.
-     */
+    /* 
+    /   Reset Game
+    */
     function reset() {
         isPaused = true;
         player.speed = 0;
@@ -193,7 +190,8 @@ var Engine = (function(global) {
         curLevel = 1;
         curScore = 0;
         curLives = 5;
-        maxSpeed = 250;
+        gemScore = 100;
+        maxSpeed = 200;
         startScreen();
         highScore();
         updateLives();
@@ -206,15 +204,7 @@ var Engine = (function(global) {
         });
     }
 
-    function restartEntities() {
-        player.speed = 101;
-        playerSpeedY = 83;
-        reInstantiateGems();
-        allEnemies.forEach(function(enemy) {
-            enemy.speed = randomSpeed();
-        });
-    }
-
+    // Manage Start and Restart / Event Listeners (ESC and Enter)
     let disableEnter = false;
     let disableESC = false;
     document.addEventListener('keyup', function(e) {
